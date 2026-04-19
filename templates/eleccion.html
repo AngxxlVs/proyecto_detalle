@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --lila: #C8A2C8;
+    --lila-fuerte: #A66FA6;
+    --lila-suave: #EBD6EB;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(to bottom, var(--lila-suave), white);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--lila-fuerte);
+}
+
+p {
+    text-align: left;
+    line-height: 1.7;
+}
+
+/* botón */
+button {
+    width: 80%;
+    margin: 30px auto;
+    background: var(--lila);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* loader */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: none;
+    z-index: 9999;
+}
+
+#loader .contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heart {
+    font-size: 50px;
+    animation: latido 1s infinite;
+}
+
+@keyframes latido {
+    50% { transform: scale(1.3); }
+}
+
+/* ✨ efecto final */
+.efecto-final {
+    display: inline-block;
+    color: #A66FA6;
+    font-weight: bold;
+    font-size: 18px;
+    animation: latidoFinal 1.2s infinite, brillo 2s infinite;
+}
+
+@keyframes latidoFinal {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes brillo {
+    0% { text-shadow: 0 0 0px rgba(166,111,166,0.2); }
+    50% { text-shadow: 0 0 10px rgba(166,111,166,0.7); }
+    100% { text-shadow: 0 0 0px rgba(166,111,166,0.2); }
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="titulo"></h1>
+<p id="texto"></p>
+
+<button onclick="ir('/')">volver 🤍</button>
+
+<div id="loader">
+    <div class="contenido">
+        <div class="heart">🤍</div>
+        <p>Cargando...</p>
+    </div>
+</div>
+
+<script>
+// 💾 guardar progreso
+localStorage.setItem("vioEleccion", "true");
+
+/* ✍️ título */
+const tituloTexto = "¿Por qué tú? 🤍";
+let i = 0;
+
+function escribirTitulo() {
+    if (i < tituloTexto.length) {
+        document.getElementById("titulo").innerHTML += tituloTexto.charAt(i);
+        i++;
+        setTimeout(escribirTitulo, 80);
+    } else {
+        escribir();
+    }
+}
+
+escribirTitulo();
+
+/* 💌 mensaje */
+const contenido = `Te preguntaras amor, ¿a que me refiero en "por que tu"?  A esto quiero darte a entender por que sigo contigo a pesar de todo a pesar de nuestras diferencias, a pesar de los enojos, a pesar de todo, todo es gracias a q el amor que te tengo es más grande que cualquier problema..
+
+Te seguiré amando y te seguiré escogiendo por mucho mucho tiempo, ¿por que? Porque me gusta la persona que eres, amo cada cosa de ti, en otro momento te podré explicar td eso aquí quiero que entiendas q mi amor por ti nunca se va a ir, no importa si tu no me quieras hablar, o si tu te llegas a cansar de mi, para mi tu eres lo mejor que tengo, la persona q me da felicidad, la mujer con la que quiero todo, la mujer con la q quiero hacer tds las cosas bien aunque me cueste,
+
+¿por que te amo? Te amo porque me cuando estoy contigo me siento seguro, me das una felicidad y una alegría que no puedo comparar con nd en este mundo, te amo pq me eh dado cuenta q a pesar de td lo q ha pasado sigo a tu lado, te amo pq no me interesa que problemas tengamos, yo voy a tratar de arreglar las cosas con tal de no perderte nunca,
+
+por ahí dicen que todas las rosas tienen espinas, tu muestrame las tuyas y te mostrare unas manos dispuestas a sangrar por ellas,
+
+Te amo sin importar nada, porque nunca nos dejamos solos en nuestras ocurrencias, por muy locas o penosas que sean, porque yo no busco el dinero ni la fama. Yo no quiero un trono, solo quiero que estés bien y ya, y esa es mi mayor preocupación,
+
+porque habrá días que no me quieras ver, que no me quieras hablar, y no importa si no me quieres. Lo que hago lo hago por ti, ya que solo te siento a ti. Sin importar lo que pasemos, los malos momentos o las tragedias, yo estaré ahí para ti.
+
+Porque tú eres mi tristeza, mi esperanza pero sobre todo eres mi amor. Estoy convencido de que si esta vida termina, yo te seguiré amando, ya que yo te amo, te amo en todos los universos.
+
+Tú me volviste digno. Tú eres mi camino y siempre vas a ser mi camino.
+
+Por favor, nunca olvides cuánto te amo, porque dentro de esta tierra, esta ciudad y esta vida, yo te amo 3 millones 🤍`;
+
+let j = 0;
+
+function escribir() {
+    const texto = document.getElementById("texto");
+
+    const final = "te amo 3 millones 🤍";
+    const antesFinal = contenido.substring(0, contenido.length - final.length);
+
+    if (j < contenido.length) {
+
+        if (j >= antesFinal.length) {
+            texto.innerHTML = antesFinal.replace(/\n/g, "<br><br>") +
+            `<span id="finalEspecial"></span>`;
+            escribirFinal(0);
+            return;
+        }
+
+        texto.innerHTML += contenido.charAt(j) === '\n' ? '<br><br>' : contenido.charAt(j);
+        j++;
+
+        setTimeout(escribir, 15);
+    }
+}
+
+function escribirFinal(k) {
+    const finalTexto = "te amo 3 millones 🤍";
+    const elemento = document.getElementById("finalEspecial");
+
+    if (k < finalTexto.length) {
+        elemento.innerHTML += finalTexto.charAt(k);
+        k++;
+        setTimeout(() => escribirFinal(k), 80);
+    } else {
+        elemento.classList.add("efecto-final");
+    }
+}
+
+/* 🔄 navegación */
+function ir(ruta) {
+    document.getElementById("loader").style.display = "block";
+    setTimeout(() => {
+        window.location.href = ruta;
+    }, 1200);
+}
+</script>
+
+</body>
+</html>
