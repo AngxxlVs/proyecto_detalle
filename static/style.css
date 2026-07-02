@@ -1,0 +1,81 @@
+:root {
+    --lila: #C8A2C8;
+    --lila-fuerte: #A66FA6;
+    --lila-suave: #EBD6EB;
+    --negro: #1A1A1A;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(to bottom, var(--lila-suave), white);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: var(--lila-fuerte);
+}
+
+button {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+    background: var(--lila);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--lila-fuerte);
+    transform: scale(1.05);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.final-btn {
+    background: #8e5a8e;
+}
+
+.aviso {
+    font-size: 13px;
+    color: #555;
+    margin-top: -5px;
+}
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: none;
+    z-index: 9999;
+}
+
+#loader .contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heart {
+    font-size: 50px;
+    animation: latido 1s infinite;
+}
+
+@keyframes latido {
+    50% { transform: scale(1.3); }
+}
