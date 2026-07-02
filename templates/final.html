@@ -6,37 +6,19 @@
 <title>Para nosotros 🤍</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <style>
-:root {
-    --lila: #C8A2C8;
-    --lila-fuerte: #A66FA6;
-    --lila-suave: #EBD6EB;
-    --negro: #1A1A1A;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    background: linear-gradient(to bottom, var(--lila-suave), white);
     color: var(--negro);
-    text-align: center;
     overflow: hidden;
 }
 
-/* 💜 título */
 h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 42px;
-    color: var(--lila-fuerte);
     opacity: 0;
     animation: fade 1.5s forwards;
 }
 
-/* 💌 mensaje */
 p {
     margin-top: 20px;
     line-height: 1.6;
@@ -45,34 +27,19 @@ p {
     animation-delay: 1s;
 }
 
-/* 🔘 botón */
 button {
     margin-top: 30px;
-    background: var(--lila);
-    color: white;
-    border: none;
     padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
     opacity: 0;
     animation: fade 2s forwards;
     animation-delay: 2s;
 }
 
-button:hover {
-    background: var(--lila-fuerte);
-    transform: scale(1.05);
-}
-
-/* ✨ fade */
 @keyframes fade {
     to { opacity: 1; }
 }
 
-/* 💫 corazones flotando */
-.heart {
+.floating-heart {
     position: fixed;
     bottom: -10px;
     font-size: 20px;
@@ -81,12 +48,8 @@ button:hover {
 }
 
 @keyframes subir {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-110vh);
-    }
+    from { transform: translateY(0); }
+    to { transform: translateY(-110vh); }
 }
 </style>
 </head>
@@ -110,7 +73,7 @@ button:hover {
 /* 💫 corazones flotando */
 function crearCorazon() {
     const heart = document.createElement("div");
-    heart.classList.add("heart");
+    heart.classList.add("floating-heart");
     heart.innerText = "🤍";
 
     heart.style.left = Math.random() * 100 + "vw";
